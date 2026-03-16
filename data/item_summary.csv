@@ -1,0 +1,97 @@
+username,item,amount
+anna,Breakfast,3.5
+anna,Bus Ticket,1.5
+anna,Coffee,5.0
+anna,Internet Bill,15.0
+anna,Lunch,18.0
+anna,Mobile Data,10.0
+anna,Snacks,4.5
+anna,Taxi,18.0
+anna,biryani,100.0
+anna,chai,27.0
+anna,chai with snaks,50.0
+anna,chass,17.0
+anna,chiness bhel,60.0
+anna,choclate,15.0
+anna,others,50.0
+anna,wifi,350.0
+john,Book,10.0
+john,Breakfast,4.0
+john,Bus Ticket,1.5
+john,Coffee,10.0
+john,Dinner,7.5
+john,Movie Ticket,8.0
+john,Notebook,3.5
+john,Snacks,6.0
+john,Stationery,4.5
+john,chai,31.0
+john,chai with snaks,20.0
+john,coffee,12.0
+john,coldrink,20.0
+john,juice,15.0
+john,others,25.0
+john,pizza,100.0
+john,shoe,500.0
+lina,Breakfast,3.5
+lina,Bus Ticket,3.0
+lina,Coffee,5.0
+lina,Internet Bill,15.0
+lina,Lunch,18.0
+lina,Mobile Data,10.0
+lina,Snacks,2.0
+lina,Taxi,12.0
+lina,chai,34.0
+lina,chai with snaks,45.0
+lina,chicken,50.0
+lina,coffee,12.0
+lina,coldrink,10.0
+lina,juice,15.0
+lina,others,50.0
+lina,rikshow,12.0
+mike,Book,12.0
+mike,Breakfast,4.0
+mike,Bus Ticket,1.5
+mike,Coffee,10.0
+mike,Dinner,7.0
+mike,Notebook,3.5
+mike,Snacks,6.0
+mike,Stationery,4.0
+mike,biryani,200.0
+mike,chai,14.0
+mike,chai with snaks,55.0
+mike,coffee,12.0
+mike,coldrink,20.0
+mike,idli,85.0
+mike,juice,15.0
+mike,recharge,210.0
+mike,rikshow,12.0
+roth,Book,11.0
+roth,Breakfast,4.0
+roth,Coffee,10.0
+roth,Dinner,7.5
+roth,Movie Ticket,8.0
+roth,Notebook,3.0
+roth,Snacks,6.0
+roth,Stationery,4.0
+roth,chai,7.0
+roth,chai with snaks,80.0
+roth,coffee,24.0
+roth,coldrink,20.0
+roth,ice cream,35.0
+roth,juice,30.0
+roth,others,25.0
+sara,Breakfast,3.5
+sara,Bus Ticket,4.5
+sara,Coffee,5.0
+sara,Internet Bill,15.0
+sara,Lunch,11.5
+sara,Mobile Data,10.0
+sara,Snacks,4.5
+sara,Taxi,5.5
+sara,chai,42.0
+sara,chai with snaks,70.0
+sara,coldrink,10.0
+sara,faluda,50.0
+sara,ice cream,30.0
+sara,juice,15.0
+sara,rikshow,12.0

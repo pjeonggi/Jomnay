@@ -1,0 +1,154 @@
+username,date,item,amount,category,time,day
+roth,2023-01-03,chai,7.0,alone,7:00,Wednesday
+anna,2023-01-03,chai,20.0,friend,10:00,Wednesday
+john,2023-01-03,juice,15.0,friend,13:00,Wednesday
+sara,2023-01-03,rikshow,12.0,alone,14:00,Wednesday
+mike,2023-01-03,coffee,12.0,alone,15:00,Wednesday
+lina,2023-01-03,chai with snaks,25.0,alone,17:00,Wednesday
+roth,2023-01-03,coldrink,10.0,alone,21:30,Wednesday
+anna,2023-01-03,others,10.0,alone,12:00,Wednesday
+john,2023-02-03,chai,7.0,alone,7:00,Thursday
+sara,2023-02-03,juice,15.0,friend,13:00,Thursday
+mike,2023-02-03,rikshow,12.0,friend,14:00,Thursday
+lina,2023-02-03,coffee,12.0,alone,15:00,Thursday
+roth,2023-02-03,chai with snaks,25.0,alone,18:00,Thursday
+anna,2023-02-03,chiness bhel,60.0,friend,20:00,Thursday
+john,2023-03-03,chai,7.0,alone,7:00,Friday
+sara,2023-03-03,chai,15.0,friend,10:00,Friday
+mike,2023-03-03,idli,40.0,friend,10:32,Friday
+lina,2023-03-03,others,15.0,alone,12:00,Friday
+roth,2023-03-03,chai with snaks,25.0,alone,18:00,Friday
+anna,2023-03-03,choclate,15.0,friend,22:30,Friday
+john,2023-04-03,chai,7.0,alone,7:00,Saturday
+sara,2023-04-03,chai,10.0,friend,10:00,Saturday
+mike,2023-04-03,juice,15.0,alone,12:00,Saturday
+lina,2023-04-03,rikshow,12.0,alone,12:30,Saturday
+roth,2023-04-03,coffee,12.0,alone,15:30,Saturday
+anna,2023-04-03,others,30.0,alone,12:00,Saturday
+john,2023-04-03,chai,10.0,alone,17:30,Saturday
+sara,2023-04-03,ice cream,30.0,friend,21:30,Saturday
+mike,2023-05-03,chai with snaks,30.0,alone,9:30,Sunday
+lina,2023-05-03,others,35.0,alone,10:00,Sunday
+roth,2023-05-03,coldrink,10.0,alone,15:00,Sunday
+anna,2023-05-03,chai,7.0,alone,18:00,Sunday
+john,2023-05-03,shoe,500.0,alone,17:30,Sunday
+sara,2023-05-03,faluda,50.0,friend,22:40,Sunday
+mike,2023-06-03,chai,7.0,alone,7:00,Monday
+lina,2023-06-03,juice,15.0,friend,12:00,Monday
+roth,2023-06-03,coffee,12.0,alone,15:00,Monday
+anna,2023-06-03,chass,17.0,friend,15:30,Monday
+john,2023-06-03,chai with snaks,20.0,alone,17:20,Monday
+sara,2023-07-03,chai with snaks,25.0,alone,9:00,Tuesday
+mike,2023-07-03,idli,45.0,friend,10:00,Tuesday
+lina,2023-07-03,chai,7.0,friend,17:00,Tuesday
+roth,2023-07-03,ice cream,35.0,friend,19:00,Tuesday
+anna,2023-07-03,others,10.0,alone,12:00,Tuesday
+john,2023-07-03,pizza,100.0,friend,21:00,Tuesday
+sara,2023-07-03,coldrink,10.0,alone,1.083333333,Tuesday
+mike,2023-07-03,biryani,200.0,friend,23:30,Tuesday
+lina,2023-08-03,chai,20.0,friend,7:00,Wednesday
+roth,2023-08-03,juice,15.0,friend,10:00,Wednesday
+anna,2023-08-03,wifi,350.0,alone,10:30,Wednesday
+john,2023-08-03,coffee,12.0,alone,14:00,Wednesday
+sara,2023-08-03,chai with snaks,25.0,alone,18:00,Wednesday
+mike,2023-09-03,chai with snaks,25.0,alone,9:00,Thursday
+lina,2023-09-03,chai with snaks,20.0,alone,17:30,Thursday
+roth,2023-09-03,others,15.0,alone,19:30,Thursday
+anna,2023-10-03,chai with snaks,15.0,alone,9:00,Friday
+john,2023-10-03,others,5.0,alone,12:00,Friday
+sara,2023-10-03,chai with snaks,20.0,alone,17:00,Friday
+mike,2023-10-03,chai,7.0,friend,19:00,Friday
+lina,2023-11-03,chai,7.0,alone,7:00,Saturday
+roth,2023-11-03,juice,15.0,friend,11:00,Saturday
+anna,2023-11-03,chai with snaks,35.0,alone,17:00,Saturday
+john,2023-11-03,others,20.0,alone,12:00,Saturday
+sara,2023-11-03,chai,7.0,friend,19:00,Saturday
+mike,2023-11-03,coldrink,20.0,friend,21:00,Saturday
+lina,2023-11-03,chicken,50.0,friend,21:00,Saturday
+roth,2023-12-03,chai with snaks,30.0,alone,9:00,Sunday
+anna,2023-12-03,biryani,100.0,friend,14:00,Sunday
+john,2023-12-03,coldrink,20.0,friend,14:10,Sunday
+sara,2023-12-03,chai,10.0,friend,18:00,Sunday
+mike,2023-12-03,recharge,210.0,alone,12:00,Sunday
+lina,2023-12-03,coldrink,10.0,friend,21:00,Sunday
+roth,2023-12-03,others,10.0,,18:30,Sunday
+anna,2026-03-01,Coffee,2.5,Food,08:30,Sunday
+john,2026-03-01,Breakfast,4.0,Food,09:00,Sunday
+sara,2026-03-01,Bus Ticket,1.5,Transport,10:00,Sunday
+mike,2026-03-01,Snacks,2.0,Food,16:20,Sunday
+lina,2026-03-02,Lunch,5.5,Food,12:30,Monday
+roth,2026-03-02,Notebook,3.0,Education,14:20,Monday
+anna,2026-03-02,Taxi,6.0,Transport,18:45,Monday
+john,2026-03-02,Coffee,2.5,Food,09:10,Monday
+sara,2026-03-03,Coffee,2.5,Food,08:40,Tuesday
+mike,2026-03-03,Dinner,7.0,Food,19:00,Tuesday
+lina,2026-03-03,Mobile Data,10.0,Bills,21:30,Tuesday
+roth,2026-03-03,Snacks,2.0,Food,15:00,Tuesday
+anna,2026-03-04,Snacks,2.0,Food,10:15,Wednesday
+john,2026-03-04,Stationery,4.5,Education,15:10,Wednesday
+sara,2026-03-04,Bus Ticket,1.5,Transport,17:20,Wednesday
+mike,2026-03-04,Coffee,2.5,Food,08:20,Wednesday
+lina,2026-03-05,Lunch,6.0,Food,12:15,Thursday
+roth,2026-03-05,Coffee,2.5,Food,16:30,Thursday
+anna,2026-03-05,Internet Bill,15.0,Bills,20:00,Thursday
+john,2026-03-05,Snacks,2.0,Food,11:30,Thursday
+sara,2026-03-06,Breakfast,3.5,Food,08:50,Friday
+mike,2026-03-06,Book,12.0,Education,13:40,Friday
+lina,2026-03-06,Taxi,5.5,Transport,19:10,Friday
+roth,2026-03-06,Coffee,2.5,Food,10:20,Friday
+anna,2026-03-07,Lunch,6.5,Food,12:00,Saturday
+john,2026-03-07,Movie Ticket,8.0,Entertainment,21:00,Saturday
+sara,2026-03-07,Snacks,2.5,Food,15:40,Saturday
+mike,2026-03-07,Bus Ticket,1.5,Transport,18:00,Saturday
+lina,2026-03-08,Coffee,2.5,Food,08:30,Sunday
+roth,2026-03-08,Breakfast,4.0,Food,09:10,Sunday
+anna,2026-03-08,Taxi,6.5,Transport,13:30,Sunday
+john,2026-03-08,Snacks,2.0,Food,17:10,Sunday
+sara,2026-03-09,Lunch,5.5,Food,12:30,Monday
+mike,2026-03-09,Notebook,3.5,Education,14:00,Monday
+lina,2026-03-09,Bus Ticket,1.5,Transport,17:20,Monday
+roth,2026-03-09,Coffee,2.5,Food,09:00,Monday
+anna,2026-03-10,Coffee,2.5,Food,08:35,Tuesday
+john,2026-03-10,Dinner,7.5,Food,19:20,Tuesday
+sara,2026-03-10,Mobile Data,10.0,Bills,21:40,Tuesday
+mike,2026-03-10,Snacks,2.0,Food,15:30,Tuesday
+lina,2026-03-11,Snacks,2.0,Food,10:00,Wednesday
+roth,2026-03-11,Stationery,4.0,Education,15:00,Wednesday
+anna,2026-03-11,Bus Ticket,1.5,Transport,17:15,Wednesday
+john,2026-03-11,Coffee,2.5,Food,08:25,Wednesday
+sara,2026-03-12,Lunch,6.0,Food,12:10,Thursday
+mike,2026-03-12,Coffee,2.5,Food,16:20,Thursday
+lina,2026-03-12,Internet Bill,15.0,Bills,20:10,Thursday
+roth,2026-03-12,Snacks,2.0,Food,11:40,Thursday
+anna,2026-03-13,Breakfast,3.5,Food,08:45,Friday
+john,2026-03-13,Book,10.0,Education,13:20,Friday
+sara,2026-03-13,Taxi,5.5,Transport,19:30,Friday
+mike,2026-03-13,Coffee,2.5,Food,10:15,Friday
+lina,2026-03-14,Lunch,6.5,Food,12:05,Saturday
+roth,2026-03-14,Movie Ticket,8.0,Entertainment,21:10,Saturday
+anna,2026-03-14,Snacks,2.5,Food,15:45,Saturday
+john,2026-03-14,Bus Ticket,1.5,Transport,18:20,Saturday
+sara,2026-03-15,Coffee,2.5,Food,08:40,Sunday
+mike,2026-03-15,Breakfast,4.0,Food,09:05,Sunday
+lina,2026-03-15,Taxi,6.5,Transport,13:10,Sunday
+roth,2026-03-15,Snacks,2.0,Food,17:00,Sunday
+anna,2026-03-16,Lunch,5.5,Food,12:35,Monday
+john,2026-03-16,Notebook,3.5,Education,14:15,Monday
+sara,2026-03-16,Bus Ticket,1.5,Transport,17:10,Monday
+mike,2026-03-16,Coffee,2.5,Food,09:20,Monday
+lina,2026-03-17,Coffee,2.5,Food,08:30,Tuesday
+roth,2026-03-17,Dinner,7.5,Food,19:10,Tuesday
+anna,2026-03-17,Mobile Data,10.0,Bills,21:50,Tuesday
+john,2026-03-17,Snacks,2.0,Food,15:35,Tuesday
+sara,2026-03-18,Snacks,2.0,Food,10:05,Wednesday
+mike,2026-03-18,Stationery,4.0,Education,15:20,Wednesday
+lina,2026-03-18,Bus Ticket,1.5,Transport,17:25,Wednesday
+roth,2026-03-18,Coffee,2.5,Food,08:15,Wednesday
+anna,2026-03-19,Lunch,6.0,Food,12:00,Thursday
+john,2026-03-19,Coffee,2.5,Food,16:10,Thursday
+sara,2026-03-19,Internet Bill,15.0,Bills,20:20,Thursday
+mike,2026-03-19,Snacks,2.0,Food,11:30,Thursday
+lina,2026-03-20,Breakfast,3.5,Food,08:55,Friday
+roth,2026-03-20,Book,11.0,Education,13:30,Friday
+anna,2026-03-20,Taxi,5.5,Transport,19:00,Friday
+john,2026-03-20,Coffee,2.5,Food,10:25,Friday
