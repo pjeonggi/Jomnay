@@ -1,70 +1,69 @@
 import csv 
 import os 
 from datetime import datetime
-# This class acts like a 'Template' for a single receipt
+
 class Expense:
-    def __init__(self,amount,date,category):
+    def __init__(self, username, amount, date, category):
+        self.username = username
         self.amount = amount
         self.date = date 
         self.category = category
-    # This tells Python how to print the expense in a nice format
-    def __str__(self):
-        return f"{self.date}| {self.category.ljust(12)} | ${self.amount: .2f}"
-    
 
-# This class manages the collection of all expenses
+    def __str__(self):
+        return f"{self.date} | {self.category.ljust(12)} | ${self.amount:.2f}"
+
+
 class ExpenseTracker:
-    def __init__(self, filename = "expenses.csv"):
+    def __init__(self, username, filename="expenses.csv"):
         self.filename = filename
+        self.username = username
         self.history = []
-        # Automatically laod existing data when the program starts
         self.load_from_csv()
 
     def add_expense(self):
-        print ("\n--- Add New Expense ---")
+        print("\n--- Add New Expense ---")
         try:
             amount = float(input("Enter amount spent: "))
-            date = input("Enter date (ex., YYY-MM-DD): ")
-            category = input ("Enter category (ex., Food, Transport):")
-            new_expense = Expense (amount , date ,category)
+            date = input("Enter date (YYYY-MM-DD): ")
+            category = input("Enter category: ")
+
+            new_expense = Expense(self.username, amount, date, category)
             self.history.append(new_expense)
             self.save_to_csv(new_expense)
-            print ("Expense Saved To file!")
+
+            print("✅ Expense saved!")
+
         except ValueError:
-            print ("Invalid input. Please enter a number for the amount.")
+            print("Invalid input.")
 
     def save_to_csv(self, expense):
-        # 'a' means Append mode (adds to the end of the file)
         with open(self.filename, mode='a', newline='') as file:
-            writer = csv.writer(file)      
-            formatted_line = f"{expense.date}-> {expense.category} = {expense.amount}$"
-            # wrap it in [] because writerow expects a list 
-            writer.writerow([formatted_line])
-            
-    
+            writer = csv.writer(file)
+            # ✅ FIXED FORMAT
+            writer.writerow([expense.username, expense.amount, expense.date, expense.category])
+
     def load_from_csv(self):
         if os.path.exists(self.filename):
             with open(self.filename, mode='r') as file:
                 reader = csv.reader(file)
                 for row in reader:
-                    if len(row) == 3:
+                    if len(row) == 4:
                         try:
-                            # This ensures we only load valid numeric data
-                            saved_expense = Expense(float(row[0]), row[1], row[2])
-                            self.history.append(saved_expense)
-                        except ValueError:
-                            # This skips the header row or any corrupted data
-                            return
+                            username, amount, date, category = row
+                            if username == self.username:
+                                self.history.append(
+                                    Expense(username, float(amount), date, category)
+                                )
+                        except:
+                            continue
+
     def show_history(self):
-           
-           print ("\n--- Expense History---")
-           if not self.history:
-               print("No transactions found")
-           else:
-               print ("Date | Category | Amount ")
-               print ("-> "  )
-               for item in self.history:
-                   print (item)
+        print("\n--- Expense History ---")
+        if not self.history:
+            print("No transactions found")
+        else:
+            for item in self.history:
+                print(item)
         
 if __name__ =='__main__':
     tracker = ExpenseTracker()
