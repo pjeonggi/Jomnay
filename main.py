@@ -1,7 +1,6 @@
 from src.fileExporter import FileExporter
 
-def main():
-	file_path = "data/myExpenses1.csv"
+file_path = "data/myExpenses1.csv"
 
 	exporter = FileExporter(file_path)
 	exporter.check_file()
@@ -13,7 +12,3 @@ def main():
 	exporter.monthly_summary()
 	exporter.category_summary()
 	exporter.amount_summary()
-
-
-if __name__ == "__main__":
-	main()

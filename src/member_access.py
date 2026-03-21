@@ -30,7 +30,7 @@ class AccountManager:
         try:
             with open(self.filename, mode="w", newline="") as file:
                 writer = csv.writer(file)
-                writer.writerow(["Username", "Password", "Phone","Telegram ID", "Allowance"])
+                writer.writerow(["Username", "Password", "Phone","Telegram_ID", "Allowance"])
                 for user in self.accounts.values():
                     writer.writerow([
                         user.username,
@@ -53,7 +53,7 @@ class AccountManager:
                         row["Username"],
                         row["Password"],
                         row["Phone"],
-                        row["Telegram ID"],
+                        row["Telegram_ID"],
                         allowance_list,
                         hashed=True
                     )
