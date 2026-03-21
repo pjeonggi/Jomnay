@@ -12,10 +12,11 @@ class SignupError(Exception):
 
 
 class User:
-    def __init__(self, username, password, phone_number, allowance_list, hashed=False):
+    def __init__(self, username, password, phone_number,telegram_id, allowance_list, hashed=False):
         self.username = username
         self.password = password if hashed else hashlib.sha256(password.encode()).hexdigest()
         self.phone_number = phone_number
+        self.telegram_id = telegram_id
         self.allowance = allowance_list  # list of daily allowances
 
 
@@ -24,6 +25,7 @@ class AccountManager:
         self.accounts = {}
         self.filename = filename
         self.logged_in = False
+        self.current_user = None 
         self.load_accounts()
 
     # --- CSV Persistence ---
@@ -31,12 +33,13 @@ class AccountManager:
         try:
             with open(self.filename, mode="w", newline="") as file:
                 writer = csv.writer(file)
-                writer.writerow(["Username", "Password", "Phone", "Allowance"])
+                writer.writerow(["Username", "Password", "Phone","Telegram ID", "Allowance"])
                 for user in self.accounts.values():
                     writer.writerow([
                         user.username,
                         user.password,
                         user.phone_number,
+                        user.telegram_id,
                         ";".join(map(str, user.allowance))
                     ])
         except Exception as e:
@@ -53,6 +56,7 @@ class AccountManager:
                         row["Username"],
                         row["Password"],
                         row["Phone"],
+                        row["Telegram ID"],
                         allowance_list,
                         hashed=True
                     )
@@ -99,10 +103,18 @@ class AccountManager:
         suffix = [
             (len(pn) >= 9, "At least 9 digits!"),
             (len(pn) <= 10, "Not a phone number!"),
-            (not re.search(r"[a-zA-Z!@#$%^&*(),.?\":{}|<>]", pn), "Invalid characters"),
+            (not re.search(r"[a-zA-Z!@#$%^&*(),.?\":{}|<>]", pn), "Not a phone number!"),
         ]
         failed = [msg for check, msg in suffix if not check]
         return (pn[:3] in prefix and not failed, failed)
+    
+    def is_telegram_username(self, tu):
+        rules = [
+            (len(tu) >= 10, "At least 10 digit"),
+            (not re.search(r"[a-zA-Z!@#$%^&*(),.?\":{}|<>]", tu), "Invalid characters"),
+        ]
+        failed = [msg for check, msg in rules if not check]
+        return (not failed, failed)
 
     def input_allowance(self):
         mon_allowance = float(input("Input your monthly allowance: "))
@@ -143,13 +155,22 @@ class AccountManager:
                 if valid:
                     break
                 print("Invalid phone:", message)
+            
+            while True:
+                telegram_id = input("Go to @userinfobot in Telegram and start bot\nTelegram ID(1130272106): ")
+                valid, message = self.is_telegram_username(telegram_id)
+                if valid:
+                    break
+                print("Invalid phone:", message)
 
             daily_allowances = self.input_allowance()
 
-            user = User(username, password, phone_number, daily_allowances)
+            user = User(username, password, phone_number,telegram_id, daily_allowances)
             self.accounts[username] = user
             self.save_accounts()
             print("Account created successfully!")
+            print("Connect with our bot in Telegram now!")
+            print("@JOMNAY_project_bot")
 
         except Exception as e:
             raise SignupError(f"Signup failed: {e}")
@@ -165,17 +186,21 @@ class AccountManager:
                 # ✅ Print the last element in allowance list (mon_allowance)
                 print(f"Your monthly allowance: {self.accounts[username].allowance[-1]}")
                 self.logged_in = True
+                self.current_user = username
                 return username
             else:
                 self.logged_in = False
+                self.current_user = None 
                 raise LoginError("Incorrect username or password.")
         except LoginError as e:
             print(e)
             return None
 
-
 class UpdateInfo(AccountManager):
     def update_username(self, old_username, new_username):
+        if not self.logged_in or self.current_user != old_username:
+            print("You must be logged in as the correct user to update username.")
+            
         if old_username in self.accounts:
             user = self.accounts.pop(old_username)
             user.username = new_username
@@ -185,15 +210,19 @@ class UpdateInfo(AccountManager):
         else:
             print("User not found.")
 
-    def update_password(self, username):
-        if username in self.accounts:
+    def update_password(self):
+        input_username = input("Enter your username: ")
+        if not self.logged_in or self.current_user != input_username:
+            print("You must be logged in as the correct user to update username.")
+
+        while input_username in self.accounts:
             old_pw = self.masked_input("Enter old password: ")
             old_hash = hashlib.sha256(old_pw.encode()).hexdigest()
-
+        
             if self.accounts[username].password != old_hash:
                 print("Old password incorrect!")
-                return
-
+                continue
+                
             while True:
                 new_pw = self.masked_input("Enter new password: ")
                 new_hash = hashlib.sha256(new_pw.encode()).hexdigest()
@@ -239,7 +268,11 @@ class UpdateInfo(AccountManager):
         else:
             print("User not found.")
 
-    def update_phone(self, username, new_phone):
+    def update_phone(self, new_phone):
+        if not self.logged_in:
+            return ("You must be logged in to update phone number.")
+        username = self.current_user
+
         if username in self.accounts:
             self.accounts[username].phone_number = new_phone
             self.save_accounts()
@@ -247,7 +280,11 @@ class UpdateInfo(AccountManager):
         else:
             print("User not found.")
 
-    def update_allowance(self, username, new_allowance_list):
+    def update_allowance(self, new_allowance_list):
+        if not self.logged_in:
+            return("You must be logged in to update allowance.")            
+        username = self.current_user
+
         if username in self.accounts:
             self.accounts[username].allowance = new_allowance_list
             self.save_accounts()
@@ -267,26 +304,28 @@ class UpdateInfo(AccountManager):
             choice = input("Choose an option: ")
 
             if choice == "1":
-                new_username = input("New username: ")
-                self.update_username(username, new_username)
-                username = new_username
+                old_username = input("Enter your current username: ")
+                new_username = input("Enter new username: ")
+                self.update_username(old_username, new_username)
+                username = new_username  # update new username
+
             elif choice == "2":
-                new_pw = self.masked_input("New password: ")
-                self.update_password(username, new_pw)
+                self.update_password()
+
             elif choice == "3":
                 new_phone = input("New phone number: ")
-                self.update_phone(username, new_phone)
+                self.update_phone(new_phone)
+
             elif choice == "4":
                 new_allowance = self.input_allowance()
-                self.update_allowance(username, new_allowance)
+                self.update_allowance(new_allowance)
+
             elif choice == "5":
-                self.forgot_password(username)
-            elif choice == "6":
                 print("Logged out.")
                 break
+
             else:
                 print("Invalid choice.")
-
 
 # --- Main Program ---
 if __name__ == "__main__":
@@ -311,7 +350,7 @@ if __name__ == "__main__":
                     if attempts >= 3:
                         raise LoginError("Too many failed login attempts!")
                 else:
-                    user.menu(username)  # menu includes update password
+                    user.menu(username)
                     break
             except LoginError as e:
                 print(e)
