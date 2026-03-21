@@ -71,10 +71,7 @@ class FileExporter:
     def amount_summary(self):
         # total expense amount per username
         amount_summary = (
-            self.data
-            .groupby("username")["amount"]
-            .sum()
-            .reset_index(name="total_amount")
+            self.data.groupby("username")["amount"].sum().reset_index(name="total_amount")
         )
 
         output_path = os.path.join(self.output_dir, "amount_summary.csv")

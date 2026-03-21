@@ -6,10 +6,8 @@ import csv
 # --- Custom Exceptions ---
 class LoginError(Exception):
     pass
-
 class SignupError(Exception):
     pass
-
 
 class User:
     def __init__(self, username, password, phone_number,telegram_id, allowance_list, hashed=False):
@@ -18,7 +16,6 @@ class User:
         self.phone_number = phone_number
         self.telegram_id = telegram_id
         self.allowance = allowance_list  # list of daily allowances
-
 
 class AccountManager:
     def __init__(self, filename="accounts.csv"):
