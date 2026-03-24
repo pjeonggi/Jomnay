@@ -62,26 +62,32 @@ def run_smart_analysis(username, expense_file="expenses.csv", accounts_file="acc
 
         ratio = total_spent / full_allowance
 
-    
+        alert_sent = False
+        if 'AlertSent' in acc_df.columns:
+            alert_sent = str(user_row['AlertSent']) == 'True'
+        else:
+            acc_df['AlertSent'] = False
+
         msg = ""
 
-        if ratio >= 0.85:
-            msg = (
-                f"🚨 *Spending Alert: Critical Level Reached*\n\n"
-                f"User: {username}\n"
-                f"Usage: {ratio*100:.1f}% of total allowance\n"
-                f"Remaining Balance: ${full_allowance - total_spent:.2f}\n\n"
-                f"Please review your expenses to avoid exceeding your budget."
-            )
+        if total_spent >= threshold and not alert_sent:
 
-        elif total_spent >= threshold:
+            percent = ratio * 100
+
             msg = (
                 f"⚠️ *Spending Alert: Budget Threshold Reached*\n\n"
-                f"User: {username}\n"
-                f"Total Spent: ${total_spent:.2f}\n"
-                f"Allowance: ${full_allowance:.2f}\n\n"
-                f"You have reached your predefined spending limit. Consider monitoring your expenses closely."
+                f"Usage: {percent:.1f}% of allowance\n"
+                f"Spent: ${total_spent:.2f}\n"
+                f"Remaining: ${full_allowance - total_spent:.2f}\n\n"
+                f"You have reached your configured spending limit."
             )
+
+            acc_df.loc[acc_df['Username'] == username, 'AlertSent'] = True
+            acc_df.to_csv(accounts_file, index=False)
+
+        elif total_spent < threshold:
+            acc_df.loc[acc_df['Username'] == username, 'AlertSent'] = False
+            acc_df.to_csv(accounts_file, index=False)
 
         if msg:
             send_telegram_alert(msg, chat_id, username)

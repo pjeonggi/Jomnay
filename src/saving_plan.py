@@ -56,12 +56,15 @@ class SavingPlan:
             return
         
         try:
-            expense = pd.read_csv(filename, names=["date", "category", "amount"])
-            total_spent = expense["amount"].sum()
+            df = pd.read_csv(filename, names=["username", "amount", "date", "category"])
+            
+            user_expenses = df[df["username"] == self.username]
+            total_spent = user_expenses["amount"].sum()
+            
             availableFunds = self.monthly_allowance - total_spent
 
             if availableFunds <= 0:
-                print(f"\nYour balance is $0.00. No money available to save right now.")
+                print(f"\nYour balance is ${availableFunds:.2f}. No money available to save.")
                 return
             
             print(f"\n ----- JOMNAY SAVINGS ----- ")

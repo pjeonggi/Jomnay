@@ -1,6 +1,7 @@
 import hashlib
 import msvcrt
 import re
+import os
 import csv
 
 # --- Custom Exceptions ---
@@ -172,7 +173,7 @@ class AccountManager:
         except Exception as e:
             raise SignupError(f"Signup failed: {e}")
 
-    def login(self):
+    def login(self, expense_file="expenses.csv"):
         try:
             username = input("Username: ")
             password = self.masked_input("Password: ")
@@ -180,8 +181,24 @@ class AccountManager:
 
             if username in self.accounts and self.accounts[username].password == secure_password:
                 print("Login Successful!")
-                # ✅ Print the last element in allowance list (mon_allowance)
-                print(f"Your monthly allowance: {self.accounts[username].allowance[-1]}")
+                
+                total_allowance = float(self.accounts[username].allowance[-1])
+                
+                total_spent = 0.0
+                if os.path.exists(expense_file):
+                    with open(expense_file, mode='r') as file:
+                        reader = csv.reader(file)
+                        for row in reader:
+                            if len(row) == 4 and row[0] == username:
+                                try:
+                                    total_spent += float(row[1])
+                                except ValueError:
+                                    continue
+                
+                current_money = total_allowance - total_spent
+
+                print(f"Your Wallet: ${current_money:.2f} / ${total_allowance:.2f}")
+                
                 self.logged_in = True
                 self.current_user = username
                 return username
@@ -240,8 +257,13 @@ class UpdateInfo(AccountManager):
 
     def forgot_password(self, username):
         if username in self.accounts:
-            phone_check = input("Enter your registered phone number: ")
-            if phone_check != self.accounts[username].phone_number:
+            phone_check = input("Enter your registered phone number: ").strip()
+            
+            stored_phone = str(self.accounts[username].phone_number).strip()
+            check_norm = phone_check.lstrip('0')
+            stored_norm = stored_phone.lstrip('0')
+
+            if check_norm != stored_norm:
                 print("Phone number does not match our records!")
                 return
 
@@ -296,7 +318,7 @@ class UpdateInfo(AccountManager):
             print("2. Update Password")
             print("3. Update Phone Number")
             print("4. Update Allowance")
-            print("5. Logout")
+            print("5. Exit")
 
             choice = input("Choose an option: ")
 
