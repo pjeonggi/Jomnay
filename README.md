@@ -46,6 +46,25 @@ To start the program, run:
 python main.py
 ```
 
+## How to Use
+
+After running `python main.py`, follow this flow:
+
+1. Select from the main menu:
+   - `1` Login
+   - `2` Sign Up
+   - `3` Forgot Password
+   - `4` Exit
+2. If new user, choose `2` (Sign Up), then complete account details.
+3. Login and use dashboard features:
+   - Add New Expense
+   - View Expense History
+   - Manage Savings Pot
+   - View Spending Trends
+   - Export Expense Reports
+   - Account Settings
+4. Choose `7` to logout when finished.
+
 ## Required Dependencies
 
 The project uses the following Python libraries:
@@ -61,7 +80,7 @@ You can install them with:
 pip install -r requirements.txt
 ```
 
-## Project Structure 
+## Project Structure
 
 The project follows a modular Object-Oriented Programming (OOP) design.
 
@@ -74,7 +93,7 @@ The project follows a modular Object-Oriented Programming (OOP) design.
 | ├── 📄`saving_plan.py`     | Savings tracking       | Budget leftover      |
 | ├── 📄`smart_alert.py`     | Alert system           | Telegram API         |
 | ├── 📄`spendingTrend.py`   | Trend analysis         | Monthly comparison   |
-| ├── 📄`fileExporter.py`    | Export reports         | PDF/CSV              |
+| ├── 📄`fileExporter.py`    | Export reports         | CSV                  |
 | 📁`data/`                     | Input data storage     | CSV files            |
 | 📁`reportPDF/`                | Output reports         | Generated files      |
 | 📄`requirements.txt`          | Dependencies           | Python libraries     |

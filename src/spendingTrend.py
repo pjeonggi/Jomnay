@@ -57,7 +57,6 @@ class SpendingTrend:
         return comparisons
 
     def get_suggestions(self):
-        """Generate simple suggestions based on last two months of data."""
         months = sorted(self.spending_data.keys())
         if len(months) < 2:
             return ["Not enough data to generate suggestions."]
@@ -82,7 +81,7 @@ class SpendingTrend:
         return suggestions or ["Your spending is stable compared to last month."]
 
     def export_to_pdf(self, output_path, focus_month=None):
-        """Export the spending trend report to a nicely formatted PDF file."""
+        
         try:
             from reportlab.lib.pagesizes import letter
             from reportlab.lib import colors
